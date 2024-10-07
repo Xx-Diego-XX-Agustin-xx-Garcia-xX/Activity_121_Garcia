@@ -1,0 +1,15 @@
+#import statements
+import turtle as turt
+import random as rand
+
+#game configuration
+
+
+#initialize turtles
+
+
+#game functions
+
+
+#events
+
