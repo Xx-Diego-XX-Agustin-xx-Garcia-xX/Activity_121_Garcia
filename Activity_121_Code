@@ -1,4 +1,5 @@
 #import statements
+import leaderboard as lead
 import turtle as turt
 import random as rand
 
@@ -32,6 +33,7 @@ def countdown():
   if timer <= 0:
     counter.write("Time's Up", font = font_setup)
     timer_up = True
+    manage_leaderboard()
   else:
     counter.write("Timer: " + str(timer), font = font_setup)
     timer -= 1
@@ -50,6 +52,20 @@ def update_score():
   global score
   score += 1
   writer.write(score, font = font_setup)
+
+def manage_leaderboard():
+  global score
+  global dart
+  leader_names_list = lead.get_names(leaderboard_file_name)
+  leader_scores_list = lead.get_scores(leaderboard_file_name)
+
+  # show the leaderboard with or without the current player
+  if (len(leader_scores_list) < 5 or score >= leader_scores_list[4]):
+    lead.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
+    lead.draw_leaderboard(True, leader_names_list, leader_scores_list, spot, score)
+
+  else:
+    lead.draw_leaderboard(False, leader_names_list, leader_scores_list, spot, score)
 
 #events
 dart.onclick(dart_clicked)
