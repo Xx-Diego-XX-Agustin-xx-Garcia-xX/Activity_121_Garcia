@@ -3,13 +3,56 @@ import turtle as turt
 import random as rand
 
 #game configuration
-
+counter_interval = 1000
+dart_color = "red"
+dart_size = 2
+dart_shape = "classic"
+font_setup = ("Arial", 20, "normal")
+timer = 5
+timer_up = False
+score = 0
 
 #initialize turtles
+dart = turt.Turtle()
+dart.shape(dart_shape)
+dart.shapesize(dart_size)
+dart.fillcolor(dart_color)
+writer = turt.Turtle()
+counter = turt.Turtle()
 
+#-----game functions--------
+def change_position():
+  new_xpos = rand.randint(-200, 200)
+  new_ypos = rand.randint(-150, 150)
+  dart.goto(new_xpos, new_ypos)
 
-#game functions
+def countdown():
+  global timer, timer_up
+  counter.clear()
+  if timer <= 0:
+    counter.write("Time's Up", font = font_setup)
+    timer_up = True
+  else:
+    counter.write("Timer: " + str(timer), font = font_setup)
+    timer -= 1
+    counter.getscreen().ontimer(countdown, counter_interval)
 
+def dart_clicked(x, y):
+  change_position()
+  writer.clear()
+  global timer_up
+  if timer_up == False:
+    update_score()
+  else:
+    dart.hide()
+
+def update_score():
+  global score
+  score += 1
+  writer.write(score, font = font_setup)
 
 #events
-
+dart.onclick(dart_clicked)
+wn = turt.Screen()
+counter.getscreen().ontimer(countdown, counter_interval)
+wn.mainloop()
