@@ -7,7 +7,7 @@ gold_score = 25
 
 # return names in the leaderboard file
 def get_names(file_name):
-  leaderboard_file = open(file_name, "x")  # be sure you have created this
+  leaderboard_file = open(file_name, "r")  # be sure you have created this
   # use a for loop to iterate through the content of the file, one line at a time
   # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
   names = []
