@@ -21,7 +21,7 @@ dart.fillcolor(dart_color)
 writer = turt.Turtle()
 counter = turt.Turtle()
 
-#-----game functions--------
+#game functions
 def change_position():
   new_xpos = rand.randint(-200, 200)
   new_ypos = rand.randint(-150, 150)
