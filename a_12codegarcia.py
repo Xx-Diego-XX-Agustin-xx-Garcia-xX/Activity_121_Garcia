@@ -14,6 +14,8 @@ timer_up = False
 score = 0
 
 #initialize turtles
+leaderboard_file_name = "a122_leaderboard.txt"
+player_name = input ("Please enter your name:")
 dart = turt.Turtle()
 dart.shape(dart_shape)
 dart.shapesize(dart_size)
