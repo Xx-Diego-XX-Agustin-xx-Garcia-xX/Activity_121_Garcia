@@ -26,7 +26,6 @@ def get_names(file_name):
 # return scores from the leaderboard file
 def get_scores(file_name):
   leaderboard_file = open(file_name, "r")  # be sure you have created this
-
   scores = []
   for line in leaderboard_file:
     leader_score = ""    
@@ -39,7 +38,6 @@ def get_scores(file_name):
     # TODO 5: add the player score to the scores list
     scores.append(int(leader_score))
   leaderboard_file.close()
-
   # TODO 7: return the scores in place of the empty list
   return scores[]
 
