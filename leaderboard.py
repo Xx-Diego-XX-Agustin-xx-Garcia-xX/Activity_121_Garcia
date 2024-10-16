@@ -20,7 +20,7 @@ def get_names(file_name):
     names.append(leader_name)
   leaderboard_file.close()
   #  TODO 6: return the names list in place of the empty list
-  return names[]
+  return names
 
   
 # return scores from the leaderboard file
@@ -39,7 +39,7 @@ def get_scores(file_name):
     scores.append(int(leader_score))
   leaderboard_file.close()
   # TODO 7: return the scores in place of the empty list
-  return scores[]
+  return scores
 
 
 # update leaderboard by inserting the current player and score to the list at the correct position
@@ -87,7 +87,7 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
   turtle_object.goto(-160,int(turtle_object.ycor())-50)
   turtle_object.pendown()
   # TODO 14: display message about player making/not making leaderboard
-  if (high_scorer)
+  if (high_scorer):
     turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
   else:
     turtle_object.write("Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup)
